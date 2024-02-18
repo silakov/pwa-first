@@ -15,6 +15,7 @@ const App: React.FC = () => (
         </li>
       </ul>
     </nav>
+    <p>serviceWorkerRegistration.register</p>
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
           <Route path="/" element={<Home />} />
