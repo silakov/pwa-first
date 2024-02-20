@@ -16,7 +16,6 @@ const SpeechToTextButton: React.FC = () => {
     { id: 3, question: '4 * 10', answer: 'fourty', alt: '40' }
   ]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [result, setResult] = useState<boolean>(false);
   const [started, setStart] = useState<boolean>(false);
   const { transcript, listening } = useSpeechRecognition();
 
@@ -41,10 +40,7 @@ const SpeechToTextButton: React.FC = () => {
   useEffect(() => {
     console.log(transcript);
     if (!listening && (transcript.toLowerCase().includes(objects[currentIndex].answer) || transcript.toLowerCase().includes(objects[currentIndex].alt))) {
-      setResult(true);
       setTimeout(() => setCurrentIndex(prevIndex => (prevIndex + 1) % objects.length), 10000)
-    } else {
-      setResult(false);
     }
   }, [currentIndex, listening, objects, transcript])
 
