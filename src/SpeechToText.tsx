@@ -8,7 +8,7 @@ const SpeechToTextButton: React.FC = () => {
 
   const handleStart = () => {
     if (SpeechRecognition.browserSupportsSpeechRecognition()) {
-      SpeechRecognition.startListening();
+      SpeechRecognition.startListening({ language: 'en-GB'});
       setStart(true);
     } else {
       alert('Распознавание речи не поддерживается вашим браузером');
@@ -26,7 +26,7 @@ const SpeechToTextButton: React.FC = () => {
 
   useEffect(() => {
     console.log(transcript);
-    if (!listening && transcript.includes('strawberry')) {
+    if (!listening && transcript.toLowerCase().includes('strawberry')) {
       setResult(true);
       setStart(false);
     } else {
