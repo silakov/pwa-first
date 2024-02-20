@@ -1,11 +1,12 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import SpeechToTextButton from "./SpeechToText";
 const About = lazy(() => delayForDemo(import('./About')));
 const Home = lazy(() => import('./Home'));
 
 const App: React.FC = () => (
-  <div>
-    <nav>
+  <div style={{width: '200px', margin: '100px auto', textAlign: 'center'}}>
+    {/* <nav>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -21,7 +22,8 @@ const App: React.FC = () => (
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
       </Routes>
-    </Suspense>
+    </Suspense> */}
+    <SpeechToTextButton />
   </div>
 );
 
