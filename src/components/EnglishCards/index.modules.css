@@ -7,8 +7,8 @@
 }
 
 .card {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   perspective: 600px;
   position: relative;
 }
@@ -40,20 +40,25 @@
   width: 100%;
   text-align: center;
   border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   backface-visibility: hidden;
 }
 
 .front {
   background: var(--card-bg);
-  transform: translateZ(150px);
+  transform: translateZ(125px);
 }
 
 .left {
   background: var(--bg);
-  transform: rotateY(-90deg) translateZ(150px);
+  transform: rotateY(-90deg) translateZ(125px);
 }
 
 .right {
   background: var(--bg);
-  transform: rotateY(90deg) translateZ(150px);
+  transform: rotateY(90deg) translateZ(125px);
 }
