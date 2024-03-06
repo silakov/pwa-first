@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import './index.modules.css'
 
 const objects = [
   { id: 1, question: '2 * 0', answer: 'zero', alt: '0' },
@@ -104,50 +105,99 @@ const objects = [
 ];
 
 const SpeechToTextButton: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * objects.length));
   const [started, setStart] = useState<boolean>(false);
-  const [answer, setAnswer] = useState<boolean>(true);
+  const [answer, setAnswer] = useState<string>('default');
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
+
+  const next = useCallback(() => {
+    setCurrentIndex(Math.floor(Math.random() * objects.length));
+    resetTranscript();
+    handleListen();
+    setAnswer('default');
+  }, [resetTranscript])
+
+  const handleListen = () => {
+    SpeechRecognition.startListening({ language: 'en-GB'});
+  };
 
   const handleStart = () => {
     if (SpeechRecognition.browserSupportsSpeechRecognition()) {
-      SpeechRecognition.startListening({ language: 'en-GB'});
+      handleListen();
       setStart(true);
     } else {
       alert('Распознавание речи не поддерживается вашим браузером');
     }
   };
 
-  const handleListen = () => {
-    SpeechRecognition.startListening();
-  };
-
   const handleStop = () => {
+    setCurrentIndex(Math.floor(Math.random() * objects.length));
     SpeechRecognition.stopListening();
     setStart(false);
   };
 
   useEffect(() => {
-    console.log(transcript);
+    console.log(transcript, transcript);
     if (!listening && (transcript.toLowerCase().includes(objects[currentIndex].answer) || transcript.toLowerCase().includes(objects[currentIndex].alt))) {
-      setAnswer(true);
+      setAnswer('good');
       setTimeout(() => {
-        setCurrentIndex(Math.floor(Math.random() * objects.length));
+        next();
+      }, 2000);
+    } else if (started && !listening && transcript && transcript.toLowerCase() !== objects[currentIndex].answer) {
+      setAnswer('bad');
+      setTimeout(() => {
         resetTranscript();
         handleListen();
+        setAnswer('default');
       }, 2000);
-    } else {
-      setAnswer(false);
     }
-  }, [currentIndex, listening, resetTranscript, transcript])
+  }, [currentIndex, listening, next, resetTranscript, started, transcript]);
+
+  const setClass = () => {
+    switch (answer) {
+      case 'default':
+        return 'card';
+      case 'bad':
+        return 'card bad';
+      case 'good':
+        return 'card good';
+      default:
+        return 'card'
+    }
+  }
 
   return (
-    <div style={{ color: started && !listening ? ( !answer ? 'red' : 'green') : 'black' }}>
-      {started ? <button onClick={handleStop}>end</button> : <button onClick={handleStart}>start</button>}
-      {started && !listening && !answer && <button onClick={handleListen}>repeat</button>}
-      <p>{started && objects[currentIndex].question}</p>
-      <p>you say:</p>
-      <p>{transcript}</p>
+    <div className="test light">
+      {!started ?
+        <button onClick={handleStart}>start multiplications</button>
+        :
+        <div className={started && !listening ? setClass() : 'card' }>
+          <div className="content">
+            <div className="front">
+                {started && !listening && answer === 'default' && <button onClick={handleListen}>repeat</button>}
+                {started ? <button onClick={handleStop}>end</button> : <button onClick={handleStart}>start english</button>}
+                {started && !listening && answer === 'default' && <button onClick={next}>next</button>}
+                <p>{started && objects[currentIndex].question}</p>
+            </div>
+            <div className="left" style={{ '--bg': 'pink' } as React.CSSProperties}>
+                <p>you say:</p>
+                <p>{transcript}</p>
+                <p>it is incorrect!!!</p>
+            </div>
+            <div className="right" style={{ '--bg': 'lightgreen' } as React.CSSProperties}>
+                <p>you say:</p>
+                <p>{transcript}</p>
+                <p>it is correct!!!</p>
+            </div>
+            <div className="back">
+            </div>
+            <div className="top">
+            </div>
+            <div className="bottom">
+            </div>
+          </div>
+        </div>
+      }
     </div>
   );
 };

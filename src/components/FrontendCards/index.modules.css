@@ -1,0 +1,17 @@
+.test {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.answer .content {
+  transform: rotateY(-90deg);
+  transition: transform 0.5s;
+}
+
+.card.translate .content {
+  transform: rotateY(90deg);
+  transition: transform 0.5s;
+}

@@ -1,3 +1,35 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --card-bg: lightgray;
+    --page-landing-bg: #fff;
+    --color-text: #2E2E2E;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: darkgray;
+    --page-landing-bg: #000;
+    --color-text: #d0d0d0;
+  }
+}
+:root .light {
+  --page-landing-bg: #fff;
+  --color-text: #2E2E2E;
+}
+:root .dark {
+  --page-landing-bg: #000;
+  --color-text: #d0d0d0;
+}
+
+html {
+  background: var(--page-landing-bg);
+}
+
+* {
+  color: var(--color-text);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
