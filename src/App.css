@@ -21,6 +21,8 @@
 
 .header {
   max-width: 300px;
+  max-height: 50px;
+  margin: 0 auto;
 }
 
 .main {
@@ -39,9 +41,10 @@
 
 .nav {
   display: flex;
+  margin-bottom: auto;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--card-bg);
+  border-top: 1px solid var(--card-bg);
 }
 
 .nav ul {
