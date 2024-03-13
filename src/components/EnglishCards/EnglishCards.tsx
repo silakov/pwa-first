@@ -78,12 +78,12 @@ const SpeechToTextButton: React.FC = () => {
   }
 
   return (
-    <div className="test light">
+    <div className="content light">
       {!started ?
         <button onClick={handleStart}>start english</button>
         :
         <div className={started && !listening ? setClass() : 'card' }>
-          <div className="content">
+          <div className="card-content">
             <div className="front">
                 {started && !listening && answer === 'default' && <button onClick={handleListen}>repeat</button>}
                 {started ? <button onClick={handleStop}>end</button> : <button onClick={handleStart}>start english</button>}
