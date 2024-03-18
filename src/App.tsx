@@ -14,9 +14,8 @@ const App: React.FC = () => (
       <AdSense.Google
         client='ca-pub-1224813934765676'
         slot='1'
-        style={{ display: 'block' }}
-        format='auto'
-        responsive='true'
+        style={{ width: 300, height: 100 }}
+        format=''
       />
     </div>
     <main className="main">
