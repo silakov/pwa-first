@@ -17,17 +17,15 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}
-
-.header {
-  width: 300px;
-  margin: 0 auto;
+  align-items: center;
 }
 
 .main {
+  width: 100%;
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
+  padding-bottom: 60px;
 }
 
 .content {
@@ -43,22 +41,73 @@
   margin-bottom: auto;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border-top: 1px solid var(--card-bg);
 }
 
 .nav ul {
-  gap: 20px;
-  display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav ul a {
-  display: block;
+.nav>ul {
+  gap: 10px;
+  display: flex;
+}
+
+.nav li {
+  position: relative;
+}
+
+.nav a,
+.nav span {
+  display: flex;
   height: 40px;
-  line-height: 40px;
+  line-height: 20px;
+  align-items: center;
   text-decoration: none;
+  position: relative;
+  padding: 0 5px;
+  border: 1px solid transparent;
+  border-width: 0 1px;
+}
+
+.nav li:hover span {
+  border-color: var(--card-bg);
+}
+
+.nav li:hover span:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -2px;
+  height: 4px;
+  z-index: 1;
+  background: var(--page-landing-bg);
+}
+
+.nav li ul {
+  display: none;
+}
+
+.nav li:hover ul {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  width: 150px;
+  border: 1px solid var(--card-bg);
+  background: var(--page-landing-bg);
+  transform: translateX(-50%)
+}
+
+.nav ul ul a {
+  justify-content: center;
 }
 
 .nav ul a:hover {
