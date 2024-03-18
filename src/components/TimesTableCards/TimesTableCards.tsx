@@ -104,7 +104,7 @@ const objects = [
   { id: 3, question: '10 * 10', answer: 'one hundred', alt: '100' },
 ];
 
-const SpeechToTextButton: React.FC = () => {
+const TimesTableCards: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * objects.length));
   const [started, setStart] = useState<boolean>(false);
   const [answer, setAnswer] = useState<string>('default');
@@ -202,4 +202,4 @@ const SpeechToTextButton: React.FC = () => {
   );
 };
 
-export default SpeechToTextButton;
+export default TimesTableCards;

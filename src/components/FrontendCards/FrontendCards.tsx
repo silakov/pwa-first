@@ -64,7 +64,7 @@ const objects = [
   },
 ];
 
-const SpeechToTextButton: React.FC = () => {
+const FrontendCards: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(Math.floor(Math.random() * objects.length));
   const [started, setStart] = useState<boolean>(false);
   const [answer, setAnswer] = useState<string>('default');
@@ -132,4 +132,4 @@ const SpeechToTextButton: React.FC = () => {
   );
 };
 
-export default SpeechToTextButton;
+export default FrontendCards;

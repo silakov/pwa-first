@@ -4,6 +4,8 @@ import TimesTableCards from "./components/TimesTableCards/TimesTableCards";
 import EnglishCards from "./components/EnglishCards/EnglishCards";
 import FrontendCards from "./components/FrontendCards/FrontendCards";
 import AdSense from 'react-adsense-ad';
+import Home from "./Home";
+import UploadFile from "./components/UploadFile/UploadFile";
 import './App.css'
 
 const App: React.FC = () => (
@@ -23,11 +25,16 @@ const App: React.FC = () => (
             <Route path="multiplications" element={<TimesTableCards />} />
             <Route path="english" element={<EnglishCards />} />
             <Route path="frontend" element={<FrontendCards />} />
+            <Route path="upload" element={<UploadFile />} />
+            <Route path="/" element={<Home />} />
         </Routes>
       </Suspense>
     </main>
     <nav className="nav">
       <ul>
+        <li>
+          <Link to="/">home</Link>
+        </li>
         <li>
           <Link to="/multiplications">times table</Link>
         </li>
@@ -36,6 +43,9 @@ const App: React.FC = () => (
         </li>
         <li>
           <Link to="/frontend">frontend</Link>
+        </li>
+        <li>
+          <Link to="/upload">upload</Link>
         </li>
       </ul>
     </nav>
