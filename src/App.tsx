@@ -15,7 +15,8 @@ const App: React.FC = () => (
         client='ca-pub-1224813934765676'
         slot='1'
         style={{ width: 300, height: 100 }}
-        format=''
+        format='auto'
+        responsive='true'
       />
     </div>
     <main className="main">
