@@ -12,9 +12,11 @@ const App: React.FC = () => (
   <div className="wrapper">
     <div className="header">
       <AdSense.Google
+        className="rectangle"
         client='ca-pub-1224813934765676'
         slot='1'
         style={{ display: 'block', width: '300px', height: '100px' }}
+        format="rectangle"
       />
     </div>
     <main className="main">
