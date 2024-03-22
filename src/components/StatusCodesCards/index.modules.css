@@ -1,0 +1,9 @@
+.card.answer .card-content {
+  transform: rotateY(-90deg);
+  transition: transform 0.5s;
+}
+
+.card.translate .card-content {
+  transform: rotateY(90deg);
+  transition: transform 0.5s;
+}

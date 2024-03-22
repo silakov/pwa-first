@@ -30,6 +30,12 @@ html {
   color: var(--color-text);
 }
 
+button {
+  padding: 5px 10px;
+  color: var(--page-landing-bg);
+  background: var(--color-text);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

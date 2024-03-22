@@ -1,9 +1,67 @@
-.card.answer .card-content {
-  transform: rotateY(-90deg);
-  transition: transform 0.5s;
+.item {
+  min-width: 250px;
+  max-width: 500px;
+  width: 100%;
+  align-self: flex-start;
 }
 
-.card.translate .card-content {
-  transform: rotateY(90deg);
-  transition: transform 0.5s;
+.item-content {
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--color-text);
+  background: var(--page-landing-bg);
+}
+
+.buttons {
+  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-question,
+.item-translate,
+.item-answer,
+.item-links {
+  height: 100%;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.item-question {
+  display: flex;
+}
+
+.answer .item-question button,
+.links .item-question button,
+.translate .item-question button {
+  display: none;
+}
+
+.answer .item-answer {
+  display: flex;
+}
+
+.translate .item-translate {
+  display: flex;
+}
+
+.links .item-links,
+.links .item-answer {
+  display: flex;
+}
+
+.item-links ul {
+  padding-left: 20px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.item-links ul a {
+  text-decoration: none;
+}
+
+.item-links ul a:hover {
+  text-decoration: underline;
 }

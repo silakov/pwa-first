@@ -1,0 +1,97 @@
+{
+  "name": "frontend",
+  "list": [
+    {
+      "id": 1,
+      "isRemembered": false,
+      "question": "What is the `this` keyword in JavaScript?",
+      "answer": "'this' is a little tricky in JavaScript. Its value is determined by what the function you are inside of is called. In the global state, 'this' is set to the window object. The value of 'this' also depends on whether or not you are in strict mode. Inside a top-level function, a strict mode 'this' will be undefined, whereas a non-strict mode 'this' will be the window object. It's also worth knowing that the value of 'this' can be overwritten with the bind method.",
+      "translate": "Это немного сложно в JavaScript. Его значение определяется тем, как называется функция, внутри которой вы находитесь. В глобальном контексте 'this' установлен на объект window. Значение 'this' также зависит от того, находитесь ли вы в строгом режиме или нет. Внутри функции верхнего уровня в строгом режиме 'this' будет undefined, тогда как в нестрогом режиме 'this' будет объектом window. Также стоит знать, что значение 'this' можно переопределить с помощью метода 'bind'.",
+      "additional": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind",
+        "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind"
+      ]
+    },
+    {
+      "id": 2,
+      "isRemembered": false,
+      "question": "What is the difference between let, const, and var?",
+      "answer": "Originally, var was the only option JavaScript had for defining variables. In ES6, we got const and let as additional options. The important takeaways are: 1) Variables defined with const cannot be reassigned. 2) Const and let variables are block-scoped. 3) Var variables are function scoped. 4) Variables defined with var are hoisted.",
+      "translate": "",
+      "additional": [
+        "https://developer.mozilla.org/en-US/docs/Glossary/Hoisting"
+      ]
+    },
+    {
+      "id": 3,
+      "isRemembered": false,
+      "question": "What is the difference between == and ===?",
+      "answer": "Doubles equals checks for value only. Before checking, it does any necessary type coercion. For example, the string '1' will be == to the integer 1, but it will not be ===. Many projects these days prefer to always use ===. Although, some folks advocate writing code that works well with the == type coercion.",
+      "translate": "",
+      "additional": []
+    },
+    {
+      "id": 4,
+      "isRemembered": false,
+      "question": "How can you access HTML elements with JavaScript?",
+      "answer": "1) document.getElementById('para') 2) document.querySelector('.myclass') 3) document.querySelectorAll('p')",
+      "translate": "",
+      "additional": [
+        "https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"
+      ]
+    },
+    {
+      "id": 5,
+      "isRemembered": false,
+      "question": "What options do we have to store data?",
+      "answer": "You can store user data in localStorage, cookies, or sessionStorage.",
+      "translate": "",
+      "additional": []
+    },
+    {
+      "id": 6,
+      "isRemembered": false,
+      "question": "What is localStorage?",
+      "answer": "'localStorage' is a web storage API in web browsers that allows storing key-value pairs locally within the user's browser. It provides a simple way for web applications to store persistent data, which remains available even after the browser is closed. This makes it useful for storing user preferences, caching data, or implementing features like 'remember me' functionality for login forms.",
+      "translate": "",
+      "additional": []
+    },
+    {
+      "id": 7,
+      "isRemembered": false,
+      "question": "What is cookies?",
+      "answer": "'Cookies' are small pieces of data stored in the user's browser by websites to track user activity, preferences, and authentication status. They are commonly used for personalized experiences, remembering login credentials, and analyzing user behavior. 'Cookies' facilitate seamless interactions between users and websites by allowing websites to remember user settings and maintain session information across multiple page visits. However, they can also raise privacy concerns, as they may be used for tracking user behavior across different websites.",
+      "translate": "",
+      "additional": []
+    },
+    {
+      "id": 8,
+      "isRemembered": false,
+      "question": "What is sessionStorage?",
+      "answer": "'sessionStorage' is a web storage API similar to localStorage, but with a key difference: data stored in 'sessionStorage' is only accessible for the duration of the page session. Once the user closes the browser tab or navigates away from the page, the data is cleared. This makes 'sessionStorage' useful for temporarily storing data that needs to be retained only during a single browsing session, such as session-specific settings or data used for form submissions.",
+      "translate": "",
+      "additional": []
+    },
+    {
+      "id": 9,
+      "isRemembered": false,
+      "question": "What is functional programming in JavaScript?",
+      "answer": "Functional programming refers to using pure functions. The concept of immutability in functional programming refers to the idea that once a data structure is created, its state cannot be changed. In JavaScript, this means that once an object, array, or any other data structure is created, its contents cannot be modified. Instead, if you need to make changes to the data, you create a new copy of the data structure with the desired modifications applied, leaving the original data intact. Immutability promotes safer and more predictable code by eliminating side effects and making it easier to reason about the behavior of the program. It also facilitates better performance optimizations in some cases, such as memoization and caching. In the context of JavaScript, this means familiarizing yourself with map, filter, and reduce - look additional links",
+      "translate": "Концепция неизменяемости (immutability) в функциональном программировании означает, что после создания структуры данных её состояние не может быть изменено. В JavaScript это означает, что после создания объекта, массива или любой другой структуры данных их содержимое не может быть изменено. Вместо этого, если вам нужно внести изменения в данные, вы создаете новую копию структуры данных с примененными желаемыми изменениями, оставляя исходные данные неизменными. Неизменяемость способствует безопасному и более предсказуемому коду, путем устранения побочных эффектов и упрощения анализа поведения программы. Она также облегчает оптимизацию производительности в некоторых случаях, таких как мемоизация и кэширование.",
+      "additional": [
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce"
+      ]
+    },
+    {
+      "id": 10,
+      "isRemembered": false,
+      "question": "What is 'Scope' in JavaScript?",
+      "answer": "In JavaScript, each function gets its own scope. Scope is basically a collection of variables as well as the rules for how those variables are accessed by name. Only code inside that function can access that function's scoped variables. A variable name has to be unique within the same scope. A scope can be nested inside another scope. If one scope is nested inside another, code inside the innermost scope can access variables from either scope.",
+      "translate": "",
+      "additional": []
+    }
+  ]
+}

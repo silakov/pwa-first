@@ -1,0 +1,9 @@
+.example {
+  width: 280px;
+  margin: 0 auto 10px;
+}
+pre {
+  max-width: 200px;
+  overflow: auto;
+  margin: 0 auto;
+}

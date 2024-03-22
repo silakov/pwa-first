@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import './index.modules.css'
 
 interface Item {
   id: number;
@@ -7,7 +8,19 @@ interface Item {
   translate: string;
 }
 
+const example = `{
+  "name": "test",
+  "list": [
+    { 
+      "id": 1,
+      "question": "200 OK",
+      "answer": "The request has succeeded."
+    }
+  ]
+}`;
+
 const UploadFile: React.FC = () => {
+  const [title, setTitle] = useState<string>('');
   const [jsonData, setJsonData] = useState<Item[]>([]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,7 +31,8 @@ const UploadFile: React.FC = () => {
     reader.onload = (event) => {
       const fileContent = event.target?.result as string;
       try {
-        const parsedData = JSON.parse(fileContent) as Item[];
+        const parsedData = JSON.parse(fileContent).list as Item[];
+        setTitle(JSON.parse(fileContent).name);
         setJsonData(parsedData);
       } catch (error) {
         console.error('Error parsing JSON file:', error);
@@ -73,6 +87,14 @@ const UploadFile: React.FC = () => {
     <div className="content">
       {!jsonData.length ? (
         <>
+          <div className="example">
+            <p>upload json. for now it must be in next format</p>
+            <code>
+              <pre>
+                {example}
+              </pre>
+            </code>
+          </div>
           <input type="file" onChange={handleFileChange} />
           <ul>
             {jsonData.map((item, index) => (
@@ -86,12 +108,12 @@ const UploadFile: React.FC = () => {
       ) : (
         <div className="light">
           {!started ?
-            <button onClick={handleStart}>start frontend</button>
+            <button onClick={handleStart}>start {title}</button>
             :
             <div className={setClass()}>
               <div className="card-content">
                 <div className="front">
-                    {<button onClick={handleStop}>end</button>}
+                    <button onClick={handleStop}>end</button>
                     <p>{jsonData[currentIndex].question}</p>
                     <button onClick={show}>show</button>
                 </div>

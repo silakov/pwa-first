@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import TimesTableCards from "./components/TimesTableCards/TimesTableCards";
 import EnglishCards from "./components/EnglishCards/EnglishCards";
+import StatusCodesCards from "./components/StatusCodesCards/StatusCodesCards";
 import FrontendCards from "./components/FrontendCards/FrontendCards";
 import AdSense from 'react-adsense-ad';
 import Home from "./Home";
@@ -20,6 +21,7 @@ const App: React.FC = () => (
         <Routes>
             <Route path="multiplications" element={<TimesTableCards />} />
             <Route path="english" element={<EnglishCards />} />
+            <Route path="status-codes" element={<StatusCodesCards />} />
             <Route path="frontend" element={<FrontendCards />} />
             <Route path="upload" element={<UploadFile />} />
             <Route path="/" element={<Home />} />
@@ -41,6 +43,9 @@ const App: React.FC = () => (
               <Link to="/english">english</Link>
             </li>
             <li>
+              <Link to="/status-codes">status codes</Link>
+            </li>
+            <li>
               <Link to="/frontend">frontend</Link>
             </li>
           </ul>
@@ -49,7 +54,19 @@ const App: React.FC = () => (
           <span>options</span>
           <ul>
             <li>
-              <Link to="/upload">upload</Link>
+              <Link to="/upload">upload file</Link>
+            </li>
+            <li className="disable">
+              <Link to="/upload">open google sheet</Link>
+            </li>
+            <li className="disable">
+              <Link to="/upload">open link</Link>
+            </li>
+            <li className="disable">
+              <Link to="/upload">create from gpt</Link>
+            </li>
+            <li className="disable">
+              <Link to="/upload">download file</Link>
             </li>
           </ul>
         </li>
